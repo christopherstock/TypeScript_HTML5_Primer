@@ -46,7 +46,7 @@
                 MfgDrawing.drawImage
                 (
                     context,
-                    ( this.crashed ? Mfg.game.imageSystem.getImage( MfgImage.PLAYER_CRASHED ) : this.image ),
+                    this.image,
                     this.rect.x - camera.x,
                     this.rect.y - camera.y
                 );

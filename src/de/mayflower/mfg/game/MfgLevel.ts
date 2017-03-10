@@ -41,9 +41,9 @@
         private createObstacles():Array<MfgObstacle>
         {
             return [
-                new MfgObstacle( 740,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
-                new MfgObstacle( 990,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
-                new MfgObstacle( 1240, 450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
+                new MfgObstacle( 740,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
+                new MfgObstacle( 990,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
+                new MfgObstacle( 1240, 450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
             ];
         }
 
@@ -97,19 +97,18 @@
 
             this.player.clipToLevelBounds();
 
-            // this.moveAllObstacles();
-
-            // this.checkCollision();
-
-            const obstacle = this.getCollidedObstacle();
+            this.checkObstacleCollisions();
+/*
             if (obstacle) {
                 this.obstacles = this.obstacles.filter((o:MfgObstacle):boolean => !(o.rect.x === obstacle.rect.x && o.rect.y === o.rect.y) && !o.picked);
             }
+*/
         }
 
         /***************************************************************************************************************
         *   Checks if the player collides with a wall.
         ***************************************************************************************************************/
+/*
         public checkCollision():void
         {
             for ( let i:number = 0; i < this.obstacles.length; ++i )
@@ -127,20 +126,20 @@
                 }
             }
         }
-
+*/
         /**
          * Returns a collided obstacle in case of a collision.
          * TODO: possibly join this with `this.checkCollision`
-         *
-         * @returns {MfgObstacle}
          */
-        public getCollidedObstacle():MfgObstacle
+        public checkObstacleCollisions() : void
         {
-            for (let i:number = 0; i < this.obstacles.length; i++) {
-                if (this.obstacles[i].collidable && this.player.rect.collidesWithRect(this.obstacles[i].rect)) {
+            for ( let i:number = 0; i < this.obstacles.length; i++ )
+            {
+                if (!this.obstacles[ i ].picked && this.player.rect.collidesWithRect( this.obstacles[ i ].rect ) )
+                {
                     this.obstacles[i].picked = true;
 
-                    return this.obstacles[i];
+                    MfgDebug.log( 'Item picked!' );
                 }
             }
         }

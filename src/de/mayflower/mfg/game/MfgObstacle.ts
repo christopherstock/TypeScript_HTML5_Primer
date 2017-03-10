@@ -13,13 +13,11 @@
         /** The representing image. */
         private         image                       :HTMLImageElement               = null;
 
-        /** Specifies if this obstacle shall cause collision checks to fail. */
-        public          collidable                  :boolean                        = false;
-
         /** Specifies the direction this object should move. */
         public          movingDirection             :MfgDirection                   = null;
 
-        public picked:boolean = false;
+        /** Specifies if already being picked by player. */
+        public          picked                      :boolean                        = false;
 
         /***************************************************************************************************************
         *   Creates a new game object.
@@ -27,15 +25,13 @@
         *   @param x               Startup position x.
         *   @param y               Startup position y.
         *   @param image           The representing image.
-        *   @param collidable      Specifies if this obstacle shall be collidable.
         *   @param movingDirection Specifies the direction to move this obstacle.
         *                          <code>null</code> if this obstacle should not move.
         ***************************************************************************************************************/
-        public constructor( x:number, y:number, image:HTMLImageElement, collidable:boolean, movingDirection:MfgDirection )
+        public constructor( x:number, y:number, image:HTMLImageElement, movingDirection:MfgDirection )
         {
             this.rect            = new MfgRect2D( x, y, image.width, image.height );
             this.image           = image;
-            this.collidable      = collidable;
             this.movingDirection = movingDirection;
         }
 
@@ -47,6 +43,8 @@
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
+            if (this.picked) return;
+
             //draw image
             if ( !MfgDebug.DEBUG_DISABLE_IMAGE_DRAWING )
             {
