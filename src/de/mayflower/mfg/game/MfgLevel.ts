@@ -197,11 +197,7 @@
         private createPlayer()
         {
             let playerImage:HTMLImageElement = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_DEFAULT );
-            this.player = new MfgPlayer(
-                MfgSetting.PLAYER_STARTUP_X,
-                MfgSetting.PLAYER_STARTUP_Y,
-                playerImage
-            );
+            this.player = new MfgPlayer( 0, 0, playerImage );
         }
 
         /***************************************************************************************************************
@@ -243,28 +239,11 @@
 
             this.player.handlePlayerKeys();
 
-            this.player.moveDown();
             this.player.clipToLevelBounds();
-            this.moveAllObstacles();
-            this.checkCollision();
-        }
 
-        /***************************************************************************************************************
-        *   Moves all obstacles.
-        ***************************************************************************************************************/
-        private moveAllObstacles()
-        {
-            for ( let i:number = 0; i < this.obstacles.length; ++i )
-            {
-                if ( this.obstacles[ i ].movingDirection != null )
-                {
-                    //only if the obstacle is in the current view
-                    if ( this.obstacles[ i ].rect.y < Mfg.game.camera.y + Mfg.game.canvas.getHeight() )
-                    {
-                        this.obstacles[ i ].move();
-                    }
-                }
-            }
+            // this.moveAllObstacles();
+
+            // this.checkCollision();
         }
 
         /***************************************************************************************************************

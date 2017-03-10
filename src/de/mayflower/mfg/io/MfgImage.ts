@@ -1,6 +1,4 @@
 
-    /// <reference path="../MfgSetting.ts"/>
-
     /*******************************************************************************************************************
     *   Specifies all different images being used in the game.
     *

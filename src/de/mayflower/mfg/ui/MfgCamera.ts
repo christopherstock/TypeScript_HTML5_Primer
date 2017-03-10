@@ -40,15 +40,15 @@
             subject      :MfgRect2D
         )
         {
-            //calculate scroll-x-offset so camera is centered to player
+            //calculate scroll offsets so the camera is centered to player
             this.x = subject.x - canvasWidth / 2 + subject.width / 2;
-            //clip camera-x to level bounds
+            this.y = subject.y - canvasHeight / 2 + subject.height / 2;
+
+            //clip camera X to level bounds
             if ( this.x < 0                        ) this.x = 0;
             if ( this.x > levelWidth - canvasWidth ) this.x = levelWidth - canvasWidth;
 
-            //calculate scroll-y-offset so camera is centered to player
-            this.y = subject.y - MfgSetting.PLAYER_OFFSET_TOP; // - canvasHeight + subject.height;
-            //clip camera-y to level bounds
+            //clip camera Y to level bounds
             if ( this.y < 0                          ) this.y = 0;
             if ( this.y > levelHeight - canvasHeight ) this.y = levelHeight - canvasHeight;
         }

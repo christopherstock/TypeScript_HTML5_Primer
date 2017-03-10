@@ -15,8 +15,10 @@
 
         /** Indicates active collision. */
         public          colliding                   :boolean                        = false;
+
         /** Indicates crashed state. */
         public          crashed                     :boolean                        = false;
+
         /** Indicates that the player reached the finish line. */
         public          won                         :boolean                        = false;
 
@@ -117,19 +119,5 @@
             if ( this.rect.x > Mfg.game.level.width - this.rect.width   ) this.rect.x = Mfg.game.level.width - this.rect.width;
             if ( this.rect.y < 0                                        ) this.rect.y = 0;
             if ( this.rect.y > Mfg.game.level.height - this.rect.height ) this.rect.y = Mfg.game.level.height - this.rect.height;
-        }
-
-        /***************************************************************************************************************
-        *   Moves the player down with the specified speed.
-        ***************************************************************************************************************/
-        public moveDown()
-        {
-            this.rect.y += MfgSetting.PLAYER_SPEED_MOVE_Y;
-
-            if ( this.rect.y > 4675 )
-            {
-                this.won = true;
-                MfgDebug.log( "Player reached the finish line." );
-            }
         }
     }
