@@ -19,6 +19,8 @@
         /** The level height. */
         public                      height          :number                             = 0;
 
+        public defaultObstacles:Array<MfgObstacle> = [];
+
         /***************************************************************************************************************
         *   Creates a new level instance.
         ***************************************************************************************************************/
@@ -29,7 +31,7 @@
             this.height = MfgSetting.LEVEL_HEIGHT;
 
             //create walls
-            this.createObstacles();
+            this.obstacles = this.defaultObstacles = this.createObstacles();
 
             //create player instance
             this.createPlayer();
@@ -38,9 +40,13 @@
         /***************************************************************************************************************
         *   Inits all walls for this level.
         ***************************************************************************************************************/
-        private createObstacles()
+        private createObstacles():Array<MfgObstacle>
         {
-            this.obstacles = [
+            if (this.defaultObstacles.length > 0) {
+                return this.defaultObstacles;
+            }
+
+            return [
 
                 new MfgObstacle( 740,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
                 new MfgObstacle( 990,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
@@ -101,6 +107,13 @@
             // this.moveAllObstacles();
 
             // this.checkCollision();
+
+            const obstacle = this.getCollidedObstacle();
+            if (obstacle) {
+                this.obstacles = this.defaultObstacles = this.createObstacles().filter((o:MfgObstacle):boolean => {
+                    return !(o.rect.x === obstacle.rect.x && o.rect.y === o.rect.y);
+                });
+            }
         }
 
         /***************************************************************************************************************
@@ -120,6 +133,21 @@
                     MfgDebug.log( "Player crashed." );
 
                     return;
+                }
+            }
+        }
+
+        /**
+         * Returns a collided obstacle in case of a collision.
+         * TODO: possibly join this with `this.checkCollision`
+         *
+         * @returns {MfgObstacle}
+         */
+        public getCollidedObstacle():MfgObstacle
+        {
+            for (let i:number = 0; i < this.obstacles.length; i++) {
+                if (this.obstacles[i].collidable && this.player.rect.collidesWithRect(this.obstacles[i].rect)) {
+                    return this.obstacles[i];
                 }
             }
         }
