@@ -70,7 +70,7 @@
             }
 
             //draw image
-            if ( !MfgDebug.DEBUG_DISABLE_IMAGES )
+            if ( !MfgDebug.DEBUG_DISABLE_IMAGE_DRAWING )
             {
                 MfgDrawing.drawImage
                 (
@@ -111,12 +111,6 @@
                 {
                     this.rect.y += speedY;
                 }
-            }
-
-            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_1 ) )
-            {
-                MfgDebug.toggleMovement();
-                Mfg.game.keySystem.setNeedsRelease( MfgKeySystem.KEY_1 );
             }
         }
 

@@ -60,7 +60,7 @@
             }
 
             //draw image
-            if ( !MfgDebug.DEBUG_DISABLE_IMAGES )
+            if ( !MfgDebug.DEBUG_DISABLE_IMAGE_DRAWING )
             {
                 MfgDrawing.drawImage
                 (

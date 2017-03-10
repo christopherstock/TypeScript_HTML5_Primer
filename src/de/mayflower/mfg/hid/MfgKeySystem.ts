@@ -23,13 +23,8 @@
         /** The keycode that represents the 'SPACE' key. */
         public      static  KEY_SPACE       :number                             = 32;
 
-        /** The keycode that represents the '1' key. */
-        public      static  KEY_1           :number                             = 49;
-
         /** All 'pressed' states for all keys. */
         private             pressed         :Array<boolean>                     = null;
-        /** All 'needsRelease' states for all keys. */
-        private             needsRelease    :Array<boolean>                     = null;
 
         /*****************************************************************************
         *   Creates a new key object.
@@ -78,7 +73,6 @@
             var keyCode = evt.which;
 
             this.pressed[      keyCode ] = false;
-            this.needsRelease[ keyCode ] = false;
 
             MfgDebug.log( "key released ["  + keyCode + "]" );
         };
@@ -93,17 +87,5 @@
         public isPressed( keyCode:number ):boolean
         {
             return this.pressed[ keyCode ];
-        }
-
-        /*****************************************************************************
-        *   Flags that a key needs release before the next keyDown-events is accepted.
-        *   The current 'pressed' state for this key is cleared in addition.
-        *
-        *   @param keyCode The keyCode of the key that needs release.
-        *****************************************************************************/
-        public setNeedsRelease( keyCode:number ):void
-        {
-            this.needsRelease[ keyCode ] = true;
-            this.pressed[      keyCode ] = false;
         }
     }
