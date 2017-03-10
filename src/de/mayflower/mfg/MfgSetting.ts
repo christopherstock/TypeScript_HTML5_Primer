@@ -1,6 +1,6 @@
 
     /*****************************************************************************
-    *   All adjustments and balancings for the application.
+    *   All settings, adjustments and balancings for the application.
     *
     *   @author  Christopher Stock
     *   @version 1.0
@@ -8,7 +8,7 @@
     class MfgSetting
     {
         /** The application's title. */
-        public      static      TITLE                                       :string             = "HTML5 TypeScript primer, (c) 2016 Mayflower GmbH, v. 1.0";
+        public      static      TITLE                                       :string             = "HTML5 TypeScript Primer, (c) 2017 Mayflower GmbH, v. 1.0";
 
         /** The desired canvas width. */
         public      static      CANVAS_WIDTH                                :number             = 900;

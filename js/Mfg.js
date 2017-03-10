@@ -406,7 +406,7 @@ var MfgKeySystem = (function () {
 var MfgSetting = (function () {
     function MfgSetting() {
     }
-    MfgSetting.TITLE = "HTML5 TypeScript primer, (c) 2016 Mayflower GmbH, v. 1.0";
+    MfgSetting.TITLE = "HTML5 TypeScript Primer, (c) 2017 Mayflower GmbH, v. 1.0";
     MfgSetting.CANVAS_WIDTH = 900;
     MfgSetting.CANVAS_HEIGHT = 600;
     MfgSetting.THREAD_DELAY = 10;
@@ -646,12 +646,6 @@ var MfgDrawing = (function () {
     };
     MfgDrawing.drawImage = function (ctx, img, x, y) {
         ctx.drawImage(img, x, y);
-    };
-    MfgDrawing.drawPreloader = function (percent) {
-        var x = (Mfg.game.canvas.getWidth() - MfgSetting.PRELOADER_WIDTH) / 2;
-        var y = (Mfg.game.canvas.getHeight() - MfgSetting.PRELOADER_HEIGHT) / 2;
-        MfgDrawing.drawRect(Mfg.game.canvas.getContext(), x - 2, y - 2, MfgSetting.PRELOADER_WIDTH + 4, MfgSetting.PRELOADER_HEIGHT + 4, MfgDrawing.COLOR_GREY_DARK_OPAQUE);
-        MfgDrawing.fillRect(Mfg.game.canvas.getContext(), x, y, MfgSetting.PRELOADER_WIDTH * percent / 100, MfgSetting.PRELOADER_HEIGHT, MfgDrawing.COLOR_RED_DARK_OPAQUE);
     };
     MfgDrawing.COLOR_WHITE_OPAQUE = "rgba( 255, 255, 255, 1.0  )";
     MfgDrawing.COLOR_GREY_TRANSLUCENT_50 = "rgba( 100, 100, 100, 0.5  )";

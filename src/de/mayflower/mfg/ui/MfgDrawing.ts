@@ -66,33 +66,4 @@
         {
             ctx.drawImage( img, x, y );
         }
-
-        /*****************************************************************************
-        *   Draws the preloader.
-        *
-        *   @param percent Amount of the loading gauge from 0 to 100.
-        *****************************************************************************/
-        public static drawPreloader( percent:number )
-        {
-            var x:number = ( Mfg.game.canvas.getWidth()  - MfgSetting.PRELOADER_WIDTH  ) / 2;
-            var y:number = ( Mfg.game.canvas.getHeight() - MfgSetting.PRELOADER_HEIGHT ) / 2;
-
-            MfgDrawing.drawRect(
-                Mfg.game.canvas.getContext(),
-                x - 2,
-                y - 2,
-                MfgSetting.PRELOADER_WIDTH + 4,
-                MfgSetting.PRELOADER_HEIGHT + 4,
-                MfgDrawing.COLOR_GREY_DARK_OPAQUE
-            );
-
-            MfgDrawing.fillRect(
-                Mfg.game.canvas.getContext(),
-                x,
-                y,
-                MfgSetting.PRELOADER_WIDTH * percent / 100,
-                MfgSetting.PRELOADER_HEIGHT,
-                MfgDrawing.COLOR_RED_DARK_OPAQUE
-            );
-        }
     }
