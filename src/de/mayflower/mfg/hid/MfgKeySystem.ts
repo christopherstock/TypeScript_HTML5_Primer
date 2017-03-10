@@ -1,10 +1,10 @@
 
-    /*****************************************************************************
+    /*******************************************************************************************************************
     *   The key system manages all pressed keys.
     *
     *   @author  Christopher Stock
     *   @version 1.0
-    *****************************************************************************/
+    *******************************************************************************************************************/
     class MfgKeySystem
     {
         /** The keycode that represents the 'ARROW LEFT' key. */
@@ -16,74 +16,63 @@
         /** The keycode that represents the 'ARROW DOWN' key. */
         public      static  KEY_DOWN        :number                             = 40;
 
-        /** The keycode that represents the 'ENTER' key. */
-        public      static  KEY_ENTER       :number                             = 13;
-        /** The keycode that represents the 'ESCAPE' key. */
-        public      static  KEY_ESCAPE      :number                             = 27;
-        /** The keycode that represents the 'SPACE' key. */
-        public      static  KEY_SPACE       :number                             = 32;
-
-        /** All 'pressed' states for all keys. */
+        /** Saves 'pressed' states for all keycodes. */
         private             pressed         :Array<boolean>                     = null;
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   Creates a new key object.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public constructor()
         {
             this.pressed      = [];
-            this.needsRelease = [];
 
-            var onKeyDown:any = this.handleKeyDown;
-            var onKeyUp:any   = this.handleKeyUp;
+            let onKeyDown:any = this.handleKeyDown;
+            let onKeyUp:any   = this.handleKeyUp;
 
             //set event listener for keyboard devices - all but IE
-            window.addEventListener( "keydown",     onKeyDown, false );
-            window.addEventListener( "keyup",       onKeyUp,   false );
+            window.addEventListener( "keydown",   onKeyDown, false );
+            window.addEventListener( "keyup",     onKeyUp,   false );
 
             //set event listener for keyboard devices - IE
-            window.addEventListener( "onkeydown",   onKeyDown, false );
-            window.addEventListener( "onkeyup",     onKeyUp,   false );
+            window.addEventListener( "onkeydown", onKeyDown, false );
+            window.addEventListener( "onkeyup",   onKeyUp,   false );
         }
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   This method is always invoked by the system if a key is pressed.
         *
         *   @param evt The system's propagated key event.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public handleKeyDown =( evt:KeyboardEvent )=>
         {
-            var keyCode = evt.which;
+            let keyCode = evt.which;
 
-            if ( !this.needsRelease[ keyCode ] )
-            {
-                this.pressed[ keyCode ] = true;
-            }
+            this.pressed[ keyCode ] = true;
 
             MfgDebug.log( "key pressed ["  + keyCode + "]" );
         };
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   This method is always invoked by the system if a key is released.
         *
         *   @param evt The system's propagated key event.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public handleKeyUp = ( evt:KeyboardEvent )=>
         {
-            var keyCode = evt.which;
+            let keyCode = evt.which;
 
-            this.pressed[      keyCode ] = false;
+            this.pressed[ keyCode ] = false;
 
             MfgDebug.log( "key released ["  + keyCode + "]" );
         };
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   Checks if the key with the given keyCode is currently pressed.
         *
         *   @param keyCode The keyCode of the key to return pressed state.
         *   @return        <code>true</code> if this key is currently pressed.
         *                  Otherwise <code>false</code>.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public isPressed( keyCode:number ):boolean
         {
             return this.pressed[ keyCode ];
