@@ -1,0 +1,19 @@
+{
+    "compileOnSave": true,
+
+    "compilerOptions": {
+        "noImplicitAny":      false,
+        "removeComments":     true,
+        "preserveConstEnums": true,
+        "outFile":            "js/Mfg.js",
+        "sourceMap":          true
+    },
+
+    "include": [
+        "src/**/*",
+        "lib/**/*"
+    ],
+
+    "exclude": [
+    ]
+}
