@@ -19,6 +19,8 @@
         /** Specifies the direction this object should move. */
         public          movingDirection             :MfgDirection                   = null;
 
+        public picked:boolean = false;
+
         /***************************************************************************************************************
         *   Creates a new game object.
         *

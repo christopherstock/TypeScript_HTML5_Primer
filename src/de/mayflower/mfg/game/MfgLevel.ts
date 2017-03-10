@@ -19,8 +19,6 @@
         /** The level height. */
         public                      height          :number                             = 0;
 
-        public defaultObstacles:Array<MfgObstacle> = [];
-
         /***************************************************************************************************************
         *   Creates a new level instance.
         ***************************************************************************************************************/
@@ -31,7 +29,7 @@
             this.height = MfgSetting.LEVEL_HEIGHT;
 
             //create walls
-            this.obstacles = this.defaultObstacles = this.createObstacles();
+            this.obstacles = this.createObstacles();
 
             //create player instance
             this.createPlayer();
@@ -42,12 +40,7 @@
         ***************************************************************************************************************/
         private createObstacles():Array<MfgObstacle>
         {
-            if (this.defaultObstacles.length > 0) {
-                return this.defaultObstacles;
-            }
-
             return [
-
                 new MfgObstacle( 740,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
                 new MfgObstacle( 990,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
                 new MfgObstacle( 1240, 450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
@@ -110,9 +103,7 @@
 
             const obstacle = this.getCollidedObstacle();
             if (obstacle) {
-                this.obstacles = this.defaultObstacles = this.createObstacles().filter((o:MfgObstacle):boolean => {
-                    return !(o.rect.x === obstacle.rect.x && o.rect.y === o.rect.y);
-                });
+                this.obstacles = this.obstacles.filter((o:MfgObstacle):boolean => !(o.rect.x === obstacle.rect.x && o.rect.y === o.rect.y) && !o.picked);
             }
         }
 
@@ -147,6 +138,8 @@
         {
             for (let i:number = 0; i < this.obstacles.length; i++) {
                 if (this.obstacles[i].collidable && this.player.rect.collidesWithRect(this.obstacles[i].rect)) {
+                    this.obstacles[i].picked = true;
+
                     return this.obstacles[i];
                 }
             }
