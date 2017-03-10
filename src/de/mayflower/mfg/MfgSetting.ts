@@ -28,6 +28,10 @@
         /** The relative path where all images the app makes use of reside. */
         public      static      PATH_SOUND                                  :string             = "res/sound/";
 
+        /** The player's horizontal movement speed in pixels per tick. */
+        public      static      PLAYER_SPEED_MOVE_X                         :number             = 2;
+        /** The player's vertical movement speed in pixels per tick. */
+        public      static      PLAYER_SPEED_MOVE_Y                         :number             = 2;
 
 
 
@@ -39,10 +43,6 @@
         public      static      PLAYER_STARTUP_X                            :number             = 565;
         /** The player's startup position Y. */
         public      static      PLAYER_STARTUP_Y                            :number             = 20;
-        /** The player's horizontal movement speed in pixels per tick. */
-        public      static      PLAYER_SPEED_MOVE_X                         :number             = 2;
-        /** The player's vertical movement speed in pixels per tick. */
-        public      static      PLAYER_SPEED_MOVE_Y                         :number             = 2;
 
         /** The obstacle's moving speed for horizontal directions. */
         public      static      OBSTACLE_SPEED_MOVE_X                      :number             = 0.25;

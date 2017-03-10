@@ -3,10 +3,9 @@
     *   The main class containing the point of entry and termination.
     *
     *   TODO ASAP unify all doc block stars.
-    *   TODO ASAP Add debug toggle to SoundSystem class.
-    *   TODO ASAP Remove all weak warnings.
-    *   TODO ASAP Add lib folder and outsource lib classes.
     *   TODO ASAP Prune unused settings.
+    *   TODO ASAP Remove all weak warnings.
+    *   TODO ASAP HUD with string drawing operations (collected points).
     *
     *   @author  Christopher Stock
     *   @version 1.0

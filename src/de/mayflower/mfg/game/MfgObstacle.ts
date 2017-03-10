@@ -1,10 +1,10 @@
 
-    /*****************************************************************************
+    /*******************************************************************************************************************
     *   Represents an obstacle.
     *
     *   @author  Christopher Stock
     *   @version 1.0
-    *****************************************************************************/
+    *******************************************************************************************************************/
     class MfgObstacle
     {
         /** The bounding rectangle. */
@@ -19,7 +19,7 @@
         /** Specifies the direction this object should move. */
         public          movingDirection             :MfgDirection                   = null;
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   Creates a new game object.
         *
         *   @param x               Startup position x.
@@ -28,7 +28,7 @@
         *   @param collidable      Specifies if this obstacle shall be collidable.
         *   @param movingDirection Specifies the direction to move this obstacle.
         *                          <code>null</code> if this obstacle should not move.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public constructor( x:number, y:number, image:HTMLImageElement, collidable:boolean, movingDirection:MfgDirection )
         {
             this.rect            = new MfgRect2D( x, y, image.width, image.height );
@@ -37,12 +37,12 @@
             this.movingDirection = movingDirection;
         }
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   Draws this sprite for the specified camera context.
         *
         *   @param context The 2D drawing context.
         *   @param camera  The camera context to use for this drawing operation.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
             //draw debug rect
@@ -72,9 +72,9 @@
             }
         }
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   Moves one tick in the specified direction.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public move()
         {
             switch ( this.movingDirection )
