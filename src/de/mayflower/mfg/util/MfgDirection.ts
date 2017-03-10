@@ -1,6 +1,6 @@
 
     /*****************************************************************************
-    *   Specifies the eight primal cardinal directions in 45° ranges.
+    *   Specifies the eight primal cardinal directions in ranges of 45 degree.
     *
     *   @author  Christopher Stock
     *   @version 1.0

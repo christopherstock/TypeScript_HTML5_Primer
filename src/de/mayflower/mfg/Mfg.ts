@@ -2,10 +2,10 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP unify all doc block stars.
     *   TODO ASAP Prune unused settings.
-    *   TODO ASAP Remove all weak warnings.
     *   TODO ASAP HUD with string drawing operations (collected points).
+    *   TODO ASAP Simplify init system.
+    *   TODO ASAP Create new game logic.
     *
     *   @author  Christopher Stock
     *   @version 1.0
