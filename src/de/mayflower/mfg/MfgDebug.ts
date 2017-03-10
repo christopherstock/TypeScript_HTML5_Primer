@@ -14,7 +14,7 @@
         /** Disables all sounds. */
         public      static      DEBUG_DISABLE_SOUNDS                        :boolean            = true;
         /** Enables debug blocks. */
-        public      static      DEBUG_ENABLE_BLOCKS                         :boolean            = false;
+        public      static      DEBUG_DRAW_BOUNDING_RECTS                   :boolean            = true;
 
         /***************************************************************************************************************
         *   Logs a line of output to the default console.

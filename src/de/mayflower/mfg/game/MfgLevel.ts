@@ -258,7 +258,6 @@
                     &&  this.player.rect.collidesWithRect( this.obstacles[ i ].rect )
                 )
                 {
-                    this.player.colliding = true;
                     this.player.crashed   = true;
 
                     MfgDebug.log( "Player crashed." );
@@ -266,7 +265,5 @@
                     return;
                 }
             }
-
-            this.player.colliding = false;
         }
     }
