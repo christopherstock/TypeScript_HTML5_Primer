@@ -42,11 +42,9 @@
         {
             this.obstacles = [
 
-                new MfgObstacle( 740,  950, Mfg.game.imageSystem.getImage( MfgImage.OBSTACLE_TREE_2       ), true,  null                      ),
-                new MfgObstacle( 990,  950, Mfg.game.imageSystem.getImage( MfgImage.OBSTACLE_TREE_2       ), true,  null                      ),
-                new MfgObstacle( 1240, 950, Mfg.game.imageSystem.getImage( MfgImage.OBSTACLE_TREE_2       ), true,  null                      ),
-                new MfgObstacle( 1490, 950, Mfg.game.imageSystem.getImage( MfgImage.OBSTACLE_TREE_2       ), true,  null                      ),
-                new MfgObstacle( 1740, 950, Mfg.game.imageSystem.getImage( MfgImage.OBSTACLE_TREE_2       ), true,  null                      ),
+                new MfgObstacle( 740,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
+                new MfgObstacle( 990,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
+                new MfgObstacle( 1240, 450, Mfg.game.imageSystem.getImage( MfgImage.ITEM       ), true,  null                      ),
             ];
         }
 
@@ -55,7 +53,7 @@
         ***************************************************************************************************************/
         private createPlayer()
         {
-            let playerImage:HTMLImageElement = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_DEFAULT );
+            let playerImage:HTMLImageElement = Mfg.game.imageSystem.getImage( MfgImage.PLAYER );
             this.player = new MfgPlayer( 0, 0, playerImage );
         }
 
@@ -67,6 +65,15 @@
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
+            //draw bg
+            MfgDrawing.drawImage
+            (
+                context,
+                Mfg.game.imageSystem.getImage( MfgImage.BACKGROUND ),
+                0 - camera.x,
+                0 - camera.y
+            );
+
             //draw obstacles
             for ( let i:number = 0; i < this.obstacles.length; ++i )
             {
