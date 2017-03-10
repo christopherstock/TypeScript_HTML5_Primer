@@ -21,7 +21,7 @@
         /** Desired level width. */
         public      static      LEVEL_WIDTH                                 :number             = 2000;
         /** Desired level height. */
-        public      static      LEVEL_HEIGHT                                :number             = 5000;
+        public      static      LEVEL_HEIGHT                                :number             = 2000;
 
         /** The relative path where all images the app makes use of reside. */
         public      static      PATH_IMAGE                                  :string             = "res/image/";

@@ -45,20 +45,6 @@
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
-            //draw debug rect
-            if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )
-            {
-                MfgDrawing.fillRect
-                (
-                    context,
-                    this.rect.x - camera.x,
-                    this.rect.y - camera.y,
-                    this.rect.width,
-                    this.rect.height,
-                    MfgDrawing.COLOR_YELLOW_TRANSLUCENT_50
-                );
-            }
-
             //draw image
             if ( !MfgDebug.DEBUG_DISABLE_IMAGE_DRAWING )
             {
@@ -70,20 +56,19 @@
                     this.rect.y - camera.y
                 );
             }
-/*
-                //draw collision indicator if colliding
-                if ( this.colliding )
-                {
-                    MfgDrawing.fillRect
-                    (
-                        context,
-                        this.rect.x - camera.x,
-                        this.rect.y - camera.y,
-                        this.rect.width,
-                        this.rect.height,
-                        MfgDrawing.COLOR_RED_TRANSLUCENT_50
-                    );
-                }
-*/
+
+            //draw debug rect
+            if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )
+            {
+                MfgDrawing.fillRect
+                (
+                    context,
+                    this.rect.x - camera.x,
+                    this.rect.y - camera.y,
+                    this.rect.width,
+                    this.rect.height,
+                    MfgDrawing.COLOR_RED_TRANSLUCENT_50
+                );
+            }
         }
     }

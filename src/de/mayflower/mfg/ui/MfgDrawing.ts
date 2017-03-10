@@ -17,6 +17,8 @@
         public      static      COLOR_RED_TRANSLUCENT_50                :string         = "rgba( 255, 0,   0,   0.5  )";
         /** The RGBA statement representing color 'red dark' with full opacity. */
         public      static      COLOR_RED_DARK_OPAQUE                   :string         = "rgba( 150, 0,   0,   1.0  )";
+        /** The RGBA statement representing color 'blue' with half opacity. */
+        public      static      COLOR_BLUE_TRANSLUCENT_50               :string         = "rgba( 0,   0,   255, 0.5  )";
         /** The RGBA statement representing color 'yellow' with half opacity. */
         public      static      COLOR_YELLOW_TRANSLUCENT_50             :string         = "rgba( 255, 255, 0,   0.5  )";
         /** The RGBA statement representing color 'black' with full opacity. */

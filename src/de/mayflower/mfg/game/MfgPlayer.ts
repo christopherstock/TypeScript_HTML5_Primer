@@ -40,6 +40,18 @@
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
+            //draw image
+            if ( !MfgDebug.DEBUG_DISABLE_IMAGE_DRAWING )
+            {
+                MfgDrawing.drawImage
+                (
+                    context,
+                    ( this.crashed ? Mfg.game.imageSystem.getImage( MfgImage.PLAYER_CRASHED ) : this.image ),
+                    this.rect.x - camera.x,
+                    this.rect.y - camera.y
+                );
+            }
+
             //draw debug rect
             if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )
             {
@@ -50,19 +62,7 @@
                     this.rect.y - camera.y,
                     this.rect.width,
                     this.rect.height,
-                    MfgDrawing.COLOR_GREY_TRANSLUCENT_50
-                );
-            }
-
-            //draw image
-            if ( !MfgDebug.DEBUG_DISABLE_IMAGE_DRAWING )
-            {
-                MfgDrawing.drawImage
-                (
-                    context,
-                    ( this.crashed ? Mfg.game.imageSystem.getImage( MfgImage.PLAYER_CRASHED ) : this.image ),
-                    this.rect.x - camera.x,
-                    this.rect.y - camera.y
+                    MfgDrawing.COLOR_BLUE_TRANSLUCENT_50
                 );
             }
         }

@@ -117,7 +117,7 @@
         ***************************************************************************************************************/
         private draw()
         {
-            //clear canvas
+            //draw canvas bg
             MfgDrawing.fillRect
             (
                 this.canvas.getContext(),
@@ -125,7 +125,7 @@
                 0,
                 this.canvas.getWidth(),
                 this.canvas.getHeight(),
-                MfgDrawing.COLOR_WHITE_OPAQUE
+                MfgDrawing.COLOR_BLACK_OPAQUE
             );
 
             //draw level
