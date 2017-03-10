@@ -2,7 +2,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP add .js to ignore list.
     *   TODO ASAP unify all doc block stars.
     *   TODO ASAP Add debug toggle to SoundSystem class.
     *   TODO ASAP Remove all weak warnings.
