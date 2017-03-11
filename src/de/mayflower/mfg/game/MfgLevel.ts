@@ -11,7 +11,7 @@
         public                      player          :MfgPlayer                          = null;
 
         /** All obstacles the level consists of. */
-        public                      obstacles       :Array<MfgObstacle>                 = null;
+        public                      items           :Array<MfgObstacle>                 = null;
 
         /** The level width. */
         public                      width           :number                             = 0;
@@ -28,19 +28,19 @@
             this.width  = MfgSetting.LEVEL_WIDTH;
             this.height = MfgSetting.LEVEL_HEIGHT;
 
-            //create walls
-            this.obstacles = this.createObstacles();
+            //create items
+            this.initItems();
 
             //create player instance
-            this.createPlayer();
+            this.initPlayer();
         }
 
         /***************************************************************************************************************
-        *   Inits all walls for this level.
+        *   Inits all items for this level.
         ***************************************************************************************************************/
-        private createObstacles():Array<MfgObstacle>
+        private initItems():void
         {
-            return [
+            this.items = [
                 new MfgObstacle( 740,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
                 new MfgObstacle( 990,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
                 new MfgObstacle( 1240, 450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
@@ -50,7 +50,7 @@
         /***************************************************************************************************************
         *   Inits the player for this level.
         ***************************************************************************************************************/
-        private createPlayer()
+        private initPlayer()
         {
             let playerImage:HTMLImageElement = Mfg.game.imageSystem.getImage( MfgImage.PLAYER );
             this.player = new MfgPlayer( 0, 0, playerImage );
@@ -74,9 +74,9 @@
             );
 
             //draw obstacles
-            for ( let i:number = 0; i < this.obstacles.length; ++i )
+            for (let i:number = 0; i < this.items.length; ++i )
             {
-                this.obstacles[ i ].draw( context, camera );
+                this.items[ i ].draw( context, camera );
             }
 
             //draw player
@@ -88,56 +88,21 @@
         ***************************************************************************************************************/
         public render()
         {
-            if ( this.player.crashed || this.player.won )
-            {
-                return;
-            }
-
             this.player.handlePlayerKeys();
-
             this.player.clipToLevelBounds();
-
             this.checkObstacleCollisions();
-/*
-            if (obstacle) {
-                this.obstacles = this.obstacles.filter((o:MfgObstacle):boolean => !(o.rect.x === obstacle.rect.x && o.rect.y === o.rect.y) && !o.picked);
-            }
-*/
         }
 
         /***************************************************************************************************************
-        *   Checks if the player collides with a wall.
+        *   Returns a collided obstacle in case of a collision.
         ***************************************************************************************************************/
-/*
-        public checkCollision():void
-        {
-            for ( let i:number = 0; i < this.obstacles.length; ++i )
-            {
-                if (
-                        this.obstacles[ i ].collidable
-                    &&  this.player.rect.collidesWithRect( this.obstacles[ i ].rect )
-                )
-                {
-                    this.player.crashed   = true;
-
-                    MfgDebug.log( "Player crashed." );
-
-                    return;
-                }
-            }
-        }
-*/
-        /**
-         * Returns a collided obstacle in case of a collision.
-         * TODO: possibly join this with `this.checkCollision`
-         */
         public checkObstacleCollisions() : void
         {
-            for ( let i:number = 0; i < this.obstacles.length; i++ )
+            for ( let i:number = 0; i < this.items.length; i++ )
             {
-                if (!this.obstacles[ i ].picked && this.player.rect.collidesWithRect( this.obstacles[ i ].rect ) )
+                if ( !this.items[ i ].picked && this.player.rect.collidesWithRect( this.items[ i ].rect ) )
                 {
-                    this.obstacles[i].picked = true;
+                    this.items[i].picked = true;
 
                     MfgDebug.log( 'Item picked!' );
                 }

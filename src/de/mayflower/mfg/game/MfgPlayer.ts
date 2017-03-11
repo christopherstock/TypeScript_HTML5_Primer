@@ -13,12 +13,6 @@
         /** The representing image. */
         private         image                       :HTMLImageElement               = null;
 
-        /** Indicates crashed state. */
-        public          crashed                     :boolean                        = false;
-
-        /** Indicates that the player reached the finish line. */
-        public          won                         :boolean                        = false;
-
         /***************************************************************************************************************
         *   Creates a new game object.
         *
@@ -41,16 +35,13 @@
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
             //draw image
-            if ( !MfgDebug.DEBUG_DISABLE_IMAGE_DRAWING )
-            {
-                MfgDrawing.drawImage
-                (
-                    context,
-                    this.image,
-                    this.rect.x - camera.x,
-                    this.rect.y - camera.y
-                );
-            }
+            MfgDrawing.drawImage
+            (
+                context,
+                this.image,
+                this.rect.x - camera.x,
+                this.rect.y - camera.y
+            );
 
             //draw debug rect
             if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )

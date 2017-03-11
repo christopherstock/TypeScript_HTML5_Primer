@@ -39,11 +39,7 @@
             MfgDebug.log( MfgSetting.TITLE );
 
             //create undeployed canvas
-            this.canvas = new MfgCanvas
-            (
-                MfgSetting.CANVAS_WIDTH,
-                MfgSetting.CANVAS_HEIGHT
-            );
+            this.canvas = new MfgCanvas( MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT );
 
             //attach key listeners
             this.keySystem = new MfgKeySystem();
@@ -63,17 +59,15 @@
         private initAfterImagesLoaded=()=>
         {
             //load all sounds
-            this.soundSystem = new MfgSoundSystem(
-                MfgSound.FILE_NAMES
-            );
+            this.soundSystem = new MfgSoundSystem( MfgSound.FILE_NAMES );
 
             //play bg sound
             this.soundSystem.playSound( MfgSound.SOUND_BG_TD2 );
 
             //init a new level
-            this.level = new MfgLevel();
+            this.level  = new MfgLevel();
             this.camera = new MfgCamera();
-            this.hud = new MfgHUD();
+            this.hud    = new MfgHUD();
 
             //show the canvas
             document.body.appendChild( this.canvas.getCanvasTag() );
@@ -129,10 +123,6 @@
             );
 
             //draw level
-            this.level.draw
-            (
-                this.canvas.getContext(),
-                this.camera
-            );
+            this.level.draw( this.canvas.getContext(), this.camera );
         }
     }

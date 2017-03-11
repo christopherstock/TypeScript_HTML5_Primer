@@ -9,8 +9,6 @@
     {
         /** Disables console output. */
         public      static      DEBUG_ENABLE_CONSOLE_OUTPUT                 :boolean            = true;
-        /** Disables all images. */
-        public      static      DEBUG_DISABLE_IMAGE_DRAWING                 :boolean            = false;
         /** Disables all sounds. */
         public      static      DEBUG_DISABLE_SOUNDS                        :boolean            = true;
         /** Enables debug blocks. */

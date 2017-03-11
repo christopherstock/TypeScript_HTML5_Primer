@@ -8,11 +8,11 @@
     class MfgImage
     {
         /** Image for the background. */
-        public      static      BACKGROUND              :string                 = "bg/bgZauberwald.jpg";
+        public      static      BACKGROUND              :string                 = "bg.jpg";
         /** Image for the player. */
-        public      static      PLAYER                  :string                 = "player/default.png";
+        public      static      PLAYER                  :string                 = "player.png";
         /** Image for the item. */
-        public      static      ITEM                    :string                 = "obstacle/tree2.png";
+        public      static      ITEM                    :string                 = "item.png";
 
         /** This array contains all filenames of all images that shall be loaded. */
         public      static      FILE_NAMES              :Array<string>          =
