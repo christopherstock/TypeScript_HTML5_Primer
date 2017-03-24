@@ -92,7 +92,7 @@
         {
             this.soundSystem = new MfgSoundSystem( MfgSound.FILE_NAMES );
 
-            this.soundSystem.playSound( MfgSound.SOUND_BG_TD2 );
+            this.soundSystem.playSound( MfgSound.SOUND_BG );
         }
 
         /***************************************************************************************************************

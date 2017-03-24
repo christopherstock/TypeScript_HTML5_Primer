@@ -11,7 +11,7 @@
         public                      player          :MfgPlayer                          = null;
 
         /** All obstacles the level consists of. */
-        public                      items           :Array<MfgObstacle>                 = null;
+        private                     items           :Array<MfgObstacle>                 = null;
 
         /** The level width. */
         public                      width           :number                             = 0;
@@ -41,9 +41,9 @@
         private initItems():void
         {
             this.items = [
-                new MfgObstacle( 350, 350, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null ),
-                new MfgObstacle( 450, 475, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null ),
-                new MfgObstacle( 600, 580, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null ),
+                new MfgObstacle( 350, 350, Mfg.game.imageSystem.getImage( MfgImage.ITEM ) ),
+                new MfgObstacle( 450, 475, Mfg.game.imageSystem.getImage( MfgImage.ITEM ) ),
+                new MfgObstacle( 600, 580, Mfg.game.imageSystem.getImage( MfgImage.ITEM ) ),
             ];
         }
 
@@ -104,6 +104,8 @@
                 if ( !this.items[ i ].picked && this.player.rect.collidesWithRect( this.items[ i ].rect ) )
                 {
                     this.items[i].picked = true;
+
+                    Mfg.game.soundSystem.playSound( MfgSound.SOUND_PICK_UP );
 
                     MfgDebug.log( 'Item picked up!' );
 

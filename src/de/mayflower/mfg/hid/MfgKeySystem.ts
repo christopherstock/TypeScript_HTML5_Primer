@@ -35,7 +35,7 @@
         *
         *   @param evt The system's propagated key event.
         ***************************************************************************************************************/
-        public handleKeyDown =( evt:KeyboardEvent )=>
+        private handleKeyDown=( evt:KeyboardEvent )=>
         {
             let keyCode = evt.which;
 
@@ -49,7 +49,7 @@
         *
         *   @param evt The system's propagated key event.
         ***************************************************************************************************************/
-        public handleKeyUp = ( evt:KeyboardEvent )=>
+        private handleKeyUp=( evt:KeyboardEvent )=>
         {
             let keyCode = evt.which;
 

@@ -13,26 +13,20 @@
         /** The representing image. */
         private         image                       :HTMLImageElement               = null;
 
-        /** Specifies the direction this object should move. */
-        public          movingDirection             :MfgDirection                   = null;
-
         /** Specifies if already being picked by player. */
         public          picked                      :boolean                        = false;
 
         /***************************************************************************************************************
         *   Creates a new game object.
         *
-        *   @param x               Startup position x.
-        *   @param y               Startup position y.
-        *   @param image           The representing image.
-        *   @param movingDirection Specifies the direction to move this obstacle.
-        *                          <code>null</code> if this obstacle should not move.
+        *   @param x        Startup position x.
+        *   @param y        Startup position y.
+        *   @param image    The representing image.
         ***************************************************************************************************************/
-        public constructor( x:number, y:number, image:HTMLImageElement, movingDirection:MfgDirection )
+        public constructor( x:number, y:number, image:HTMLImageElement )
         {
-            this.rect            = new MfgRect( x, y, image.width, image.height );
-            this.image           = image;
-            this.movingDirection = movingDirection;
+            this.rect  = new MfgRect( x, y, image.width, image.height );
+            this.image = image;
         }
 
         /***************************************************************************************************************

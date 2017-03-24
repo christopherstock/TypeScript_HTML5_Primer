@@ -2,8 +2,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP Remove redundance in image and sound system.
-    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
