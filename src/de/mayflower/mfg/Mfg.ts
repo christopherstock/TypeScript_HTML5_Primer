@@ -2,7 +2,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP Create new game logic.
     *   TODO ASAP Remove redundance in image and sound system.
     *
     *   @author  Christopher Stock

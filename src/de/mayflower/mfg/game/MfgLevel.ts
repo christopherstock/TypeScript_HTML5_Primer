@@ -90,13 +90,14 @@
         {
             this.player.handlePlayerKeys();
             this.player.clipToLevelBounds();
+
             this.checkObstacleCollisions();
         }
 
         /***************************************************************************************************************
         *   Returns a collided obstacle in case of a collision.
         ***************************************************************************************************************/
-        public checkObstacleCollisions() : void
+        private checkObstacleCollisions() : void
         {
             for ( let i:number = 0; i < this.items.length; i++ )
             {
@@ -105,7 +106,29 @@
                     this.items[i].picked = true;
 
                     MfgDebug.log( 'Item picked up!' );
+
+                    if ( this.checkGameOver() ) {
+                        MfgDebug.log( "You picked up all items!" );
+                    }
                 }
             }
+        }
+
+        /***************************************************************************************************************
+        *   Checks if all items are picked and outputs a message in this case.
+        *
+        *   @return boolean
+        ***************************************************************************************************************/
+        private checkGameOver() : boolean
+        {
+            for ( let i:number = 0; i < this.items.length; i++ )
+            {
+                if ( !this.items[ i ].picked )
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
