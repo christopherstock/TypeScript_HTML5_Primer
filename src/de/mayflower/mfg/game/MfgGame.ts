@@ -140,7 +140,7 @@
         ***************************************************************************************************************/
         private draw()
         {
-            //draw canvas bg
+            //clear canvas
             MfgDrawing.fillRect
             (
                 this.canvas.getContext(),

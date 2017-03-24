@@ -73,8 +73,8 @@
                 0 - camera.y
             );
 
-            //draw obstacles
-            for (let i:number = 0; i < this.items.length; ++i )
+            //draw items
+            for ( let i:number = 0; i < this.items.length; ++i )
             {
                 this.items[ i ].draw( context, camera );
             }

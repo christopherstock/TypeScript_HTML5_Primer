@@ -65,22 +65,22 @@
         {
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_LEFT ) )
             {
-                this.rect.x -= MfgSetting.PLAYER_SPEED_MOVE_X;
+                this.rect.x -= MfgSetting.PLAYER_SPEED;
             }
 
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_RIGHT ) )
             {
-                this.rect.x += MfgSetting.PLAYER_SPEED_MOVE_X;
+                this.rect.x += MfgSetting.PLAYER_SPEED;
             }
 
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_UP ) )
             {
-                this.rect.y -= MfgSetting.PLAYER_SPEED_MOVE_Y;
+                this.rect.y -= MfgSetting.PLAYER_SPEED;
             }
 
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_DOWN ) )
             {
-                this.rect.y += MfgSetting.PLAYER_SPEED_MOVE_Y;
+                this.rect.y += MfgSetting.PLAYER_SPEED;
             }
         }
 

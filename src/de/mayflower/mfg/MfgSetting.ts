@@ -28,8 +28,6 @@
         /** The relative path where all images the app makes use of reside. */
         public      static      PATH_SOUND                          :string             = "res/sound/";
 
-        /** The player's horizontal movement speed in pixels per tick. */
-        public      static      PLAYER_SPEED_MOVE_X                 :number             = 5;
-        /** The player's vertical movement speed in pixels per tick. */
-        public      static      PLAYER_SPEED_MOVE_Y                 :number             = 5;
+        /** The player's movement speed in pixels per tick. */
+        public      static      PLAYER_SPEED                        :number             = 5;
     }
