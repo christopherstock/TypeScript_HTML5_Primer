@@ -8,7 +8,7 @@
     class MfgObstacle
     {
         /** The bounding rectangle. */
-        public          rect                        :MfgRect2D                      = null;
+        public          rect                        :MfgRect                        = null;
 
         /** The representing image. */
         private         image                       :HTMLImageElement               = null;
@@ -30,7 +30,7 @@
         ***************************************************************************************************************/
         public constructor( x:number, y:number, image:HTMLImageElement, movingDirection:MfgDirection )
         {
-            this.rect            = new MfgRect2D( x, y, image.width, image.height );
+            this.rect            = new MfgRect( x, y, image.width, image.height );
             this.image           = image;
             this.movingDirection = movingDirection;
         }
@@ -45,9 +45,6 @@
         {
             if (this.picked) return;
 
-            //draw image
-            MfgDrawing.drawImage( context, this.image, this.rect.x - camera.x, this.rect.y - camera.y );
-
             //draw debug rect
             if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )
             {
@@ -58,8 +55,11 @@
                     this.rect.y - camera.y,
                     this.rect.width,
                     this.rect.height,
-                    MfgDrawing.COLOR_RED_TRANSLUCENT_50
+                    MfgDrawing.COLOR_RED_TRANSLUCENT_33
                 );
             }
+
+            //draw image
+            MfgDrawing.drawImage( context, this.image, this.rect.x - camera.x, this.rect.y - camera.y );
         }
     }

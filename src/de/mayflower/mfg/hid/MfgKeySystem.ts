@@ -20,22 +20,14 @@
         private             pressed         :Array<boolean>                     = null;
 
         /***************************************************************************************************************
-        *   Creates a new key object.
+        *   Creates a new key system.
         ***************************************************************************************************************/
         public constructor()
         {
-            this.pressed      = [];
+            this.pressed = [];
 
-            let onKeyDown:any = this.handleKeyDown;
-            let onKeyUp:any   = this.handleKeyUp;
-
-            //set event listener for keyboard devices - all but IE
-            window.addEventListener( "keydown",   onKeyDown, false );
-            window.addEventListener( "keyup",     onKeyUp,   false );
-
-            //set event listener for keyboard devices - IE
-            window.addEventListener( "onkeydown", onKeyDown, false );
-            window.addEventListener( "onkeyup",   onKeyUp,   false );
+            window.addEventListener( "keydown", this.handleKeyDown, false );
+            window.addEventListener( "keyup",   this.handleKeyUp,   false );
         }
 
         /***************************************************************************************************************

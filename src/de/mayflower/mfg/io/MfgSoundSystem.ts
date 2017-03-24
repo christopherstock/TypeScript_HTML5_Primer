@@ -19,7 +19,11 @@
         {
             for ( let i:number = 0; i < fileNames.length; ++i )
             {
-                this.allSounds[ fileNames[ i ] ] = new Audio( MfgSetting.PATH_SOUND + fileNames[ i ] );
+                try
+                {
+                    this.allSounds[ fileNames[ i ] ] = new Audio( MfgSetting.PATH_SOUND + fileNames[ i ] );
+                }
+                catch ( e ) {}
             }
         }
 

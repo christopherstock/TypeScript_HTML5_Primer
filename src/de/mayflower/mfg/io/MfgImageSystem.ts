@@ -38,7 +38,7 @@
         ***************************************************************************************************************/
         private loadImages()
         {
-            for ( let i = 0; i < this.fileNames.length; ++i )
+            for ( let i:number = 0; i < this.fileNames.length; ++i )
             {
                 this.loadedImages[ this.fileNames[ i ] ] = this.loadImage( this.fileNames[ i ] );
             }

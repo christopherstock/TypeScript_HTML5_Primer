@@ -41,9 +41,9 @@
         private initItems():void
         {
             this.items = [
-                new MfgObstacle( 740,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
-                new MfgObstacle( 990,  450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
-                new MfgObstacle( 1240, 450, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null                      ),
+                new MfgObstacle( 350, 350, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null ),
+                new MfgObstacle( 450, 475, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null ),
+                new MfgObstacle( 600, 580, Mfg.game.imageSystem.getImage( MfgImage.ITEM ), null ),
             ];
         }
 
@@ -104,7 +104,7 @@
                 {
                     this.items[i].picked = true;
 
-                    MfgDebug.log( 'Item picked!' );
+                    MfgDebug.log( 'Item picked up!' );
                 }
             }
         }

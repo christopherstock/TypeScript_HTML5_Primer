@@ -2,10 +2,10 @@
     "compileOnSave": true,
 
     "compilerOptions": {
+        "outFile":            "js/Mfg.js",
         "noImplicitAny":      false,
         "removeComments":     true,
         "preserveConstEnums": true,
-        "outFile":            "js/Mfg.js",
         "sourceMap":          true
     },
 

@@ -8,19 +8,19 @@
     class MfgGame
     {
         /** Canvas for all drawing operations. */
-        public                          canvas              :MfgCanvas                      = null;
+        public                  canvas                  :MfgCanvas                      = null;
         /** Key handling system. */
-        public                          keySystem           :MfgKeySystem                   = null;
+        public                  keySystem               :MfgKeySystem                   = null;
         /** Image loading and providing system. */
-        public                          imageSystem         :MfgImageSystem                 = null;
+        public                  imageSystem             :MfgImageSystem                 = null;
         /** Sound loading and providing system. */
-        public                          soundSystem         :MfgSoundSystem                 = null;
+        public                  soundSystem             :MfgSoundSystem                 = null;
         /** Current level instance. */
-        public                          level               :MfgLevel                       = null;
+        public                  level                   :MfgLevel                       = null;
         /** Current player viewport. */
-        public                          camera              :MfgCamera                      = null;
+        public                  camera                  :MfgCamera                      = null;
         /** Heads Up Display. */
-        private                         hud                 :MfgHUD                         = null;
+        private                 hud                     :MfgHUD                         = null;
 
         /***************************************************************************************************************
         *   Creates a new game logic.
@@ -34,17 +34,42 @@
         ***************************************************************************************************************/
         public init()
         {
-            //set document title and acclaim debug console
             document.title = MfgSetting.TITLE;
             MfgDebug.log( MfgSetting.TITLE );
 
-            //create undeployed canvas
+            this.initCanvas();
+            this.initKeySystem();
+            this.initImageSystem();
+        }
+
+        /***************************************************************************************************************
+        *   Being invoked when all images are loaded, this method initializes the remaining game engine components.
+        ***************************************************************************************************************/
+        private initAfterImagesLoaded=()=>
+        {
+            this.initSoundSystem();
+
+            this.level  = new MfgLevel();
+            this.camera = new MfgCamera();
+            this.hud    = new MfgHUD();
+
+            this.startMainThread();
+        };
+
+        /***************************************************************************************************************
+        *   Inits the canvas and appends it to the HTML body element.
+        ***************************************************************************************************************/
+        private initCanvas()
+        {
             this.canvas = new MfgCanvas( MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT );
+            document.body.appendChild( this.canvas.getCanvasTag() );
+        }
 
-            //attach key listeners
-            this.keySystem = new MfgKeySystem();
-
-            //load all images
+        /***************************************************************************************************************
+        *   Inits all images and invokes a callback function when all images are loaded.
+        ***************************************************************************************************************/
+        private initImageSystem()
+        {
             this.imageSystem = new MfgImageSystem
             (
                 MfgImage.FILE_NAMES,
@@ -53,28 +78,30 @@
         }
 
         /***************************************************************************************************************
-        *   Being invoked when all images are loaded,
-        *   this method initializes the remaining stuff.
+        *   Inits the key system.
         ***************************************************************************************************************/
-        private initAfterImagesLoaded=()=>
+        private initKeySystem()
         {
-            //load all sounds
+            this.keySystem = new MfgKeySystem();
+        }
+
+        /***************************************************************************************************************
+        *   Inits the sound system and plays the bg sound.
+        ***************************************************************************************************************/
+        private initSoundSystem()
+        {
             this.soundSystem = new MfgSoundSystem( MfgSound.FILE_NAMES );
 
-            //play bg sound
             this.soundSystem.playSound( MfgSound.SOUND_BG_TD2 );
+        }
 
-            //init a new level
-            this.level  = new MfgLevel();
-            this.camera = new MfgCamera();
-            this.hud    = new MfgHUD();
-
-            //show the canvas
-            document.body.appendChild( this.canvas.getCanvasTag() );
-
-            //start the main thread
+        /***************************************************************************************************************
+        *   Starts the main thread that will launch the game.
+        ***************************************************************************************************************/
+        private startMainThread()
+        {
             window.setInterval( this.tick, MfgSetting.THREAD_DELAY );
-        };
+        }
 
         /***************************************************************************************************************
         *   Handles one game tick.
@@ -94,8 +121,10 @@
         ***************************************************************************************************************/
         private render()
         {
+            //renders the level
             this.level.render();
 
+            //update camera position
             this.camera.update
             (
                 this.level.width,

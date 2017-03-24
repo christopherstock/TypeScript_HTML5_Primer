@@ -37,7 +37,7 @@
             levelHeight  :number,
             canvasWidth  :number,
             canvasHeight :number,
-            subject      :MfgRect2D
+            subject      :MfgRect
         )
         {
             //calculate scroll offsets so the camera is centered to player

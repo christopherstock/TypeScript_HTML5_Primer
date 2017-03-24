@@ -7,7 +7,7 @@
     *******************************************************************************************************************/
     class MfgDebug
     {
-        /** Disables console output. */
+        /** Enables console output. */
         public      static      DEBUG_ENABLE_CONSOLE_OUTPUT                 :boolean            = true;
         /** Disables all sounds. */
         public      static      DEBUG_DISABLE_SOUNDS                        :boolean            = true;

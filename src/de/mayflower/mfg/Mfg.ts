@@ -2,8 +2,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP HUD with string drawing operations (collected points).
-    *   TODO ASAP Simplify init system.
     *   TODO ASAP Create new game logic.
     *   TODO ASAP Remove redundance in image and sound system.
     *
