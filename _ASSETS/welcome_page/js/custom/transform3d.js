@@ -4,7 +4,7 @@
     **************************************************************************************/
     function setup3Dtransitions()
     {
-        var SPEED_ANIMATION         = 1.25;
+        var SPEED_ANIMATION         = 1.75;
         var INTERVAL                = 10;
         var UPPER_EDGE_Y_MULTIPLIER = 2;
 
@@ -31,7 +31,7 @@
             }
         );
 
-        //start game loop
+        //start thread loop
         setInterval(
             function()
             {

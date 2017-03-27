@@ -137,9 +137,9 @@
 
     figure.button:hover
     {
-        background:                     #e30613;
+        background:                     #f16529;
         color:                          #ffffff;
-        border:                         1px solid #8a0d14;
+        border:                         1px solid #505050;
     }
 
     h1,
@@ -157,14 +157,14 @@
 
     h1
     {
-        color:                          #e30613;
+        color:                          #0078cb;
         margin:                         20px 0 0 0;
     }
 
     h2
     {
         color:                          #202020;
-        margin:                         0 0 25px 0;
+        margin:                         20px 0 25px 0;
     }
 
     i.fa-github,
