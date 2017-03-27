@@ -2,8 +2,8 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-	*   TODO ASAP Update _ASSETS !
-	*
+    *   TODO ASAP Update _ASSETS !
+    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
