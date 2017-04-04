@@ -2,8 +2,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP Update _ASSETS !
-    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
@@ -13,17 +11,21 @@
         public          static          game                :MfgGame                = null;
 
         /***************************************************************************************************************
-        *   Being invoked when the application starts.
+        *   The application's point of entry.
         ***************************************************************************************************************/
         public static main():void
         {
+            //set title and acclaim
+            document.title = MfgSetting.TITLE;
+            MfgDebug.log( MfgSetting.TITLE );
+
             Mfg.game = new MfgGame();
             Mfg.game.init();
         }
     }
 
     /*******************************************************************************************************************
-    *   Application's point of entry.
+    *   Being invoked when the application starts.
     *******************************************************************************************************************/
     window.onload = function()
     {
@@ -31,7 +33,7 @@
     };
 
     /*******************************************************************************************************************
-    *   Application's point of termination.
+    *   Being invoked when the application terminates.
     *******************************************************************************************************************/
     window.onunload = function()
     {

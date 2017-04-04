@@ -14,7 +14,7 @@
         private         image                       :HTMLImageElement               = null;
 
         /***************************************************************************************************************
-        *   Creates a new game object.
+        *   Creates a new player instance.
         *
         *   @param x     Startup position x.
         *   @param y     Startup position y.
@@ -27,14 +27,13 @@
         }
 
         /***************************************************************************************************************
-        *   Draws this sprite for the specified camera context.
+        *   Draws the player.
         *
         *   @param context The 2D drawing context.
         *   @param camera  The camera context to use for this drawing operation.
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
-            //draw debug rect
             if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )
             {
                 MfgDrawing.fillRect
@@ -48,7 +47,6 @@
                 );
             }
 
-            //draw image
             MfgDrawing.drawImage
             (
                 context,

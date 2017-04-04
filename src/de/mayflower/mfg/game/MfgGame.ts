@@ -20,7 +20,9 @@
         /** Current player viewport. */
         public                  camera                  :MfgCamera                      = null;
         /** Heads Up Display. */
-        private                 hud                     :MfgHUD                         = null;
+        public                  hud                     :MfgHUD                         = null;
+        /** Game loop. */
+        public                  gameLoop                :MfgGameLoop                    = null;
 
         /***************************************************************************************************************
         *   Creates a new game logic.
@@ -34,27 +36,10 @@
         ***************************************************************************************************************/
         public init()
         {
-            document.title = MfgSetting.TITLE;
-            MfgDebug.log( MfgSetting.TITLE );
-
             this.initCanvas();
             this.initKeySystem();
             this.initImageSystem();
         }
-
-        /***************************************************************************************************************
-        *   Being invoked when all images are loaded, this method initializes the remaining game engine components.
-        ***************************************************************************************************************/
-        private initAfterImagesLoaded=()=>
-        {
-            this.initSoundSystem();
-
-            this.level  = new MfgLevel();
-            this.camera = new MfgCamera();
-            this.hud    = new MfgHUD();
-
-            this.startMainThread();
-        };
 
         /***************************************************************************************************************
         *   Inits the canvas and appends it to the HTML body element.
@@ -62,7 +47,16 @@
         private initCanvas()
         {
             this.canvas = new MfgCanvas( MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT );
+
             document.body.appendChild( this.canvas.getCanvasTag() );
+        }
+
+        /***************************************************************************************************************
+        *   Inits the key system.
+        ***************************************************************************************************************/
+        private initKeySystem()
+        {
+            this.keySystem = new MfgKeySystem();
         }
 
         /***************************************************************************************************************
@@ -78,80 +72,18 @@
         }
 
         /***************************************************************************************************************
-        *   Inits the key system.
+        *   Being invoked when all images are loaded, this method initializes the remaining game engine components.
         ***************************************************************************************************************/
-        private initKeySystem()
-        {
-            this.keySystem = new MfgKeySystem();
-        }
-
-        /***************************************************************************************************************
-        *   Inits the sound system and plays the bg sound.
-        ***************************************************************************************************************/
-        private initSoundSystem()
+        private initAfterImagesLoaded=()=>
         {
             this.soundSystem = new MfgSoundSystem( MfgSound.FILE_NAMES );
-
             this.soundSystem.playSound( MfgSound.SOUND_BG );
-        }
 
-        /***************************************************************************************************************
-        *   Starts the main thread that will launch the game.
-        ***************************************************************************************************************/
-        private startMainThread()
-        {
-            window.setInterval( this.tick, MfgSetting.THREAD_DELAY );
-        }
+            this.level    = new MfgLevel();
+            this.camera   = new MfgCamera();
+            this.hud      = new MfgHUD();
 
-        /***************************************************************************************************************
-        *   Handles one game tick.
-        ***************************************************************************************************************/
-        public tick=()=>
-        {
-            this.hud.fpsMeter.tickStart();
-
-            this.render();
-            this.draw();
-
-            this.hud.fpsMeter.tick();
+            this.gameLoop = new MfgGameLoop();
+            this.gameLoop.start();
         };
-
-        /***************************************************************************************************************
-        *   Renders the current game scene.
-        ***************************************************************************************************************/
-        private render()
-        {
-            //renders the level
-            this.level.render();
-
-            //update camera position
-            this.camera.update
-            (
-                this.level.width,
-                this.level.height,
-                this.canvas.getWidth(),
-                this.canvas.getHeight(),
-                this.level.player.rect
-            );
-        }
-
-        /***************************************************************************************************************
-        *   Draws the current game frame.
-        ***************************************************************************************************************/
-        private draw()
-        {
-            //clear canvas
-            MfgDrawing.fillRect
-            (
-                this.canvas.getContext(),
-                0,
-                0,
-                this.canvas.getWidth(),
-                this.canvas.getHeight(),
-                MfgDrawing.COLOR_BLACK_OPAQUE
-            );
-
-            //draw level
-            this.level.draw( this.canvas.getContext(), this.camera );
-        }
     }

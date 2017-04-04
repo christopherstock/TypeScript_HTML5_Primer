@@ -23,7 +23,10 @@
                 {
                     this.allSounds[ fileNames[ i ] ] = new Audio( MfgSetting.PATH_SOUND + fileNames[ i ] );
                 }
-                catch ( e ) {}
+                catch ( e )
+                {
+                    MfgDebug.log( "Error on creating Audio element: " + e.message );
+                }
             }
         }
 
