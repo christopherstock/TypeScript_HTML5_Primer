@@ -52,7 +52,7 @@
         ***************************************************************************************************************/
         private initPlayer()
         {
-            let playerImage:HTMLImageElement = Mfg.game.imageSystem.getImage( MfgImage.PLAYER );
+            let playerImage:HTMLImageElement = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_RIGHT );
             this.player = new MfgPlayer( 0, 0, playerImage );
         }
 

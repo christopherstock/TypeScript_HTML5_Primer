@@ -64,11 +64,13 @@
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_LEFT ) )
             {
                 this.rect.x -= MfgSetting.PLAYER_SPEED;
+                this.image = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_LEFT );
             }
 
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_RIGHT ) )
             {
                 this.rect.x += MfgSetting.PLAYER_SPEED;
+                this.image = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_RIGHT );
             }
 
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_UP ) )
